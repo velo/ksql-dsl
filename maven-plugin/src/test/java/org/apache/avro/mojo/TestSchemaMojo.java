@@ -1,13 +1,11 @@
 /**
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * Copyright (C) 2018 Marvin Herman Froeder (marvin@marvinformatics.com)
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,19 +24,19 @@ import java.io.File;
  */
 public class TestSchemaMojo extends AbstractAvroMojoTest {
 
-  protected File testPom = new File(getBasedir(),
-          "src/test/resources/unit/schema/pom.xml");
+    protected File testPom = new File(getBasedir(),
+            "src/test/resources/unit/schema/pom.xml");
 
-  public void testSchemaMojo() throws Exception {
-    SchemaMojo mojo = (SchemaMojo) lookupMojo("schema", testPom);
+    public void testSchemaMojo() throws Exception {
+        SchemaMojo mojo = (SchemaMojo) lookupMojo("schema", testPom);
 
-    assertNotNull(mojo);
-    mojo.execute();
+        assertNotNull(mojo);
+        mojo.execute();
 
-    File outputDir = new File(getBasedir(), "target/test-harness/schema/test");
-    String[] generatedFiles = new String[]{"PrivacyDirectImport.java",
-      "PrivacyImport.java", "SchemaPrivacy.java", "SchemaUser.java"};
+        File outputDir = new File(getBasedir(), "target/test-harness/schema/test");
+        String[] generatedFiles = new String[] { "PrivacyDirectImport.java",
+                "PrivacyImport.java", "SchemaPrivacy.java", "SchemaUser.java" };
 
-    assertFilesExist(outputDir, generatedFiles);
-  }
+        assertFilesExist(outputDir, generatedFiles);
+    }
 }
